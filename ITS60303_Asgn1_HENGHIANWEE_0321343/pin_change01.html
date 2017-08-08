@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>ATM: PIN Change</title>
+
+		<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.3.0/material.amber-orange.min.css">
+		<script src="https://storage.googleapis.com/code.getmdl.io/1.3.0/material.min.js"></script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+		<!-- external CSS stylesheet -->
+		<link rel="stylesheet" href="external_css.css">
+
+		<!-- Javascript for button functionality in this page -->
+		<script type="text/javascript">
+			// to add text into PIN number textfield via use of buttons
+			function addPinText(parameters) { 
+				var number = parameters.number;
+				var pinText = document.getElementById("pinNoInput").value;
+				if(pinText.length < 6)
+					document.getElementById("pinNoInput").value = pinText + number;
+			}
+
+			// acts as backspace key for PIN number textfield
+			function deletePinText() {
+				var pinText = document.getElementById("pinNoInput").value;
+				if(pinText.length > 0) {
+					var newPinText = pinText.substr(0, (pinText.length - 1));
+					document.getElementById("pinNoInput").value = newPinText;
+				}
+			}
+
+			// clears all text in PIN number textfield if any
+			function clearPinText() {
+				document.getElementById("pinNoInput").value = "";
+			}
+		</script>
+
+		<style type="text/css">
+			.material-icons {
+				font-size: 48px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" id="full-page">
+			<header class="mdl-layout__header">
+				<h4 style="text-align: center;">PIN CHANGE</h4>
+			</header>
+
+			<div class="mdl-layout__content mdl-typography--text-center" style="width: 500px; margin: auto;">
+				<span class="mdl-typography--headline" style="text-align: center;">Enter your current PIN number.</span>
+				<div class="mdl-textfield mdl-js-textfield" style="width: 500px;">
+					<input class="mdl-textfield__input" type="password" pattern="-?[0-9]*(\.[0-9]+)?" id="pinNoInput" maxlength="6" style="font-size: 48px; text-align: center;" />
+					<label class="mdl-textfield__label" for="pinNoInput"></label>
+					<!--<span class="mdl-textfield__error">Invalid input detected!</span>-->
+				</div>
+				<br><br>
+
+				<!-- buttons -->
+				<div style="text-align: center; margin: auto;">
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-1" onclick="addPinText({number : 1})">1</button>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-2" onclick="addPinText({number : 2})">2</button>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-3" onclick="addPinText({number : 3})">3</button>
+					<br><br>
+
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-4" onclick="addPinText({number : 4})">4</button>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-5" onclick="addPinText({number : 5})">5</button>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-6" onclick="addPinText({number : 6})">6</button>
+					<br><br>
+
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-7" onclick="addPinText({number : 7})">7</button>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-8" onclick="addPinText({number : 8})">8</button>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-9" onclick="addPinText({number : 9})">9</button>
+					<br><br>
+
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-backspace" onclick="deletePinText()">
+						<i class="material-icons">keyboard_backspace</i>
+					</button>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-0" onclick="addPinText({number : 0})">0</button>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-color--green-500 numberButton" id="btn-enter" onclick="location.href='pin_change02.html';">
+						<i class="material-icons">check</i>
+					</button>
+					<br><br><br>
+
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent actionButton" id="btn-clear" onclick="clearPinText()">CLEAR</button>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent actionButton" id="btn-back" onclick="location.href='menu.html';">MENU</button>
+
+					<!-- NOTE: to close window by button, attach: onclick="self.close()" to button object -->
+					<br><br>
+
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

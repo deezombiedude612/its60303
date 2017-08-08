@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>ATM: Deposit</title>
+
+		<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.3.0/material.amber-orange.min.css">
+		<script src="https://storage.googleapis.com/code.getmdl.io/1.3.0/material.min.js"></script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+		<!-- external CSS stylesheet -->
+		<link rel="stylesheet" href="external_css.css">
+
+		<!-- Javascript for button functionality in this page -->
+		<script type="text/javascript">
+			function checkCash() {
+				document.getElementById("instructions").innerHTML = "Counting cash..";
+				setTimeout(newInstruction, 8000);
+			}
+
+			function newInstruction() {
+				document.getElementById("instructions").innerHTML = "Retrieve unrecognizable notes.";
+				setTimeout(originalInstruction, 8000);
+			}
+
+			function originalInstruction() {
+				document.getElementById("instructions").innerHTML = "Insert cash.";
+			}
+		</script>
+
+		<style>
+			.actionButton {
+				width: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" id="full-page">
+			<header class="mdl-layout__header">
+				<h4 style="text-align: center;">DEPOSIT</h4>
+			</header>
+			<div class="mdl-layout__content" style="width: 600px; margin: auto; text-align: center;">
+				<h3 style="font-weight: bolder;">SUMMARY</h3>
+				<span class="mdl-typography--display-1">0 &times; RM 1 = RM 0</span><br>
+				<span class="mdl-typography--display-1">0 &times; RM 5 = RM 0</span><br>
+				<span class="mdl-typography--display-1">0 &times; RM 10 = RM 0</span><br>
+				<span class="mdl-typography--display-1">0 &times; RM 20 = RM 0</span><br>
+				<span class="mdl-typography--display-1">0 &times; RM 50 = RM 0</span><br>
+				<span class="mdl-typography--display-1">0 &times; RM 100 = RM 0</span><br>
+				<br>
+				<span id="instructions" style="font-size: x-large;">Insert cash.</span><br>
+				<br><br>
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent actionButton" id="btn-cancel" onclick="location.href='menu.html';">CANCEL</button>
+				<br><br>
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent actionButton" id="btn-insertCash" onclick="checkCash()">INSERT CASH</button>
+				<br><br>
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent actionButton" id="btn-finish" onclick="location.href='deposit_success.html';">FINISH</button>
+			</div>
+		</div>
+	</body>
+</html>

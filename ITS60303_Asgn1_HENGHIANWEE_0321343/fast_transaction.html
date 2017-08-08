@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>ATM: Fast Transaction</title>
+
+		<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.3.0/material.amber-orange.min.css">
+		<script src="https://storage.googleapis.com/code.getmdl.io/1.3.0/material.min.js"></script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+		<!-- external CSS stylesheet -->
+		<link rel="stylesheet" href="external_css.css">
+	</head>
+	<body>
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" id="full-page">
+			<header class="mdl-layout__header">
+				<h4 style="text-align: center;">FAST TRANSACTION</h4>
+			</header>
+			<div class="mdl-layout__content" style="width: 800px; margin: auto; text-align: center;">
+				<h4>Select an amount to withdraw.</h4>
+				<br>
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent menuOpt" id="btn-$1k" onclick="location.href='process_transaction.html';">RM 1000</button>
+				&ensp;&ensp;
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent menuOpt" id="btn-$100" onclick="location.href='process_transaction.html';">RM 100</button>
+				<br><br>
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent menuOpt" id="btn-$500" onclick="location.href='process_transaction.html';">RM 500</button>
+				&ensp;&ensp;
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent menuOpt" id="btn-$50" onclick="location.href='process_transaction.html';">RM 50</button>
+				<br><br>
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent menuOpt" id="btn-$300" onclick="location.href='process_transaction.html';">RM 300</button>
+				&ensp;&ensp;
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent menuOpt" id="btn-otherAmount" onclick="location.href='fast_transaction_other.html';">Other Amount</button>
+				<br><br><br>
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent menuOpt" id="btn-goBack" style="width: 75%;" onclick="location.href='menu.html';">RETURN TO MAIN MENU</button>
+			</div>
+		</div>
+	</body>
+</html>

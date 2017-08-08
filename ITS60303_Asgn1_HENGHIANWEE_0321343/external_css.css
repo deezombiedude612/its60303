@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+body {
+	background-image: url("img/background.jpg");
+	background-size: cover;
+}
+
+.display_picture {
+	width: 500px;
+}
+
+.numberButton {
+	height: 90px;
+	width: 120px;
+	font-size: 48px;
+}
+
+.mdl-layout__content {
+	padding: 15px;
+}
+
+/* for all buttons except main menu buttons */
+.actionButton {
+	height: 75px;
+	width: 180px;
+	font-size: 36px;
+}
+
+/* for main menu and transaction option buttons only */
+.menuOpt {
+	height: 100px;
+	width: 325px;
+	font-size: 36px;
+}
+
+/* http://stackoverflow.com/questions/36562597/change-the-icon-size-of-material-design-icon */

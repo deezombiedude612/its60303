@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>ATM: Fast Transaction - Other Amount</title>
+
+		<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.3.0/material.amber-orange.min.css">
+		<script src="https://storage.googleapis.com/code.getmdl.io/1.3.0/material.min.js"></script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+		<!-- external CSS stylesheet -->
+		<link rel="stylesheet" href="external_css.css">
+
+		<!-- Javascript for button functionality in this page -->
+		<script type="text/javascript">
+			function clearText() {
+				document.getElementById("transaction_amount").innerText = "0.00";
+			}
+
+			function addText(parameters) {
+				var number = parameters.number;
+				var currentAmount = document.getElementById("transaction_amount").innerText;
+				// document.getElementById("transaction_amount").innerText = currentAmount + "A" + number;
+				// document.getElementById("transaction_amount").innerHTML = currentAmount.substr(0, currentAmount.length - 1) + number;
+				if(currentAmount == "0.00")
+					document.getElementById("transaction_amount").innerHTML = currentAmount.substr(0, currentAmount.length - 1) + number;
+				else 
+					document.getElementById("transaction_amount").innerHTML = String((parseFloat(currentAmount) * 10).toFixed(1)) + number;
+			}
+
+			document.addEventListener("keydown", function(event) {
+				var keyCodeInput = event.which || event.keyCode;
+				console.log(keyCodeInput);								// logs keyCode entered after keyboard press
+				if(keyCodeInput == 8) 									// <BACKSPACE>
+					clearText();
+				else if(keyCodeInput >= 48 && keyCodeInput <= 57) { 	// conventional numbers (not numpad)
+					var num = keyCodeInput - 48;
+					addText({number: num});
+				}
+				else if(keyCodeInput >= 96 && keyCodeInput <= 105) { 	// numpad numbers
+					var num = keyCodeInput - 96;
+					addText({number: num});
+				}
+				else if(keyCodeInput == 27) 							// <ESCAPE> 
+					location.href='fast_transaction.html';
+				else if(keyCodeInput == 13)								// <ENTER> or <RETURN>
+					location.href='process_transaction.html';
+			});
+		</script>
+
+		<style type="text/css">
+			.material-icons {
+				font-size: 48px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" id="full-page">
+			<header class="mdl-layout__header">
+				<h4 style="text-align: center;">FAST TRANSACTION: OTHER AMOUNT</h4>
+			</header>
+			<div class="mdl-layout__content" style="width: 500px; margin: auto; text-align: center;">
+				<h4>Enter an amount.</h4>
+				<span class="mdl-typography--display-2">RM </span>
+				<label class="mdl-typography--display-2" id="transaction_amount" onkeypress="keyboardListener(event)">0.00</label><br>
+				<br><br>
+				
+				<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-1" onclick="addText({number : 1})">1</button>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-2" onclick="addText({number : 2})">2</button>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-3" onclick="addText({number : 3})">3</button>
+					<br><br>
+
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-4" onclick="addText({number : 4})">4</button>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-5" onclick="addText({number : 5})">5</button>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-6" onclick="addText({number : 6})">6</button>
+					<br><br>
+
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-7" onclick="addText({number : 7})">7</button>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-8" onclick="addText({number : 8})">8</button>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-9" onclick="addText({number : 9})">9</button>
+					<br><br>
+
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-clear" onclick="clearText()">
+						<i class="material-icons">clear</i>
+					</button>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored numberButton" id="btn-0" onclick="addText({number : 0})">0</button>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-color--green-500 numberButton" id="btn-enter" onclick="location.href='process_transaction.html';">
+						<i class="material-icons">check</i>
+					</button>
+					<br><br><br>
+
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent actionButton" id="btn-goBack" style="width: 60%;" onclick="location.href='fast_transaction.html';">GO BACK</button>
+
+					<!-- REFERENCE FOR TYPOGRAPHY DISPLAY SIZES: https://getmdl.io/styles/ -->
+					<!-- REFERENCE FOR KEYCODES: https://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes -->
+					<br><br>
+
+			</div>
+
+		</div>
+	</body>
+</html>

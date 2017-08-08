@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>ATM: Check Balance</title>
+
+		<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.3.0/material.amber-orange.min.css">
+		<script src="https://storage.googleapis.com/code.getmdl.io/1.3.0/material.min.js"></script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+		<!-- external CSS stylesheet -->
+		<link rel="stylesheet" href="external_css.css">
+
+		<style type="text/css">
+			.actionButton {
+				width: 90%;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" id="full-page">
+			<header class="mdl-layout__header">
+				<h4 style="text-align: center;">CHECK BALANCE</h4>
+			</header>
+
+			<div style="margin: auto; text-align: center; width: 500px;">
+				<h4>Select the account you wish to view your balance from.</h4>
+				<br>
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent actionButton" id="btn-currentAcc" onclick="location.href='balance_currentAcc.html';">CURRENT ACCOUNT</button><br><br>
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent actionButton" id="btn-savingsAcc" onclick="location.href='balance_savingsAcc.html';">SAVINGS ACCOUNT</button><br><br>
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent actionButton" id="btn-menu" onclick="location.href='menu.html';">RETURN TO MAIN MENU</button>
+			</div>
+		</div>
+	</body>
+</html>
